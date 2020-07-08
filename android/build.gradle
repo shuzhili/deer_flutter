@@ -1,4 +1,8 @@
 buildscript {
+<<<<<<< HEAD
+=======
+    ext.kotlin_version = '1.3.50'
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
     repositories {
         google()
         jcenter()
@@ -6,6 +10,10 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
+<<<<<<< HEAD
+=======
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
     }
 }
 

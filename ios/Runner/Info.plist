@@ -11,7 +11,11 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+<<<<<<< HEAD
 	<string>deerflutter</string>
+=======
+	<string>deer_flutter</string>
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

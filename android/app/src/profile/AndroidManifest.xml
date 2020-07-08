@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     package="com.example.deerflutter">
+=======
+    package="com.example.deer_flutter">
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
     <!-- Flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->

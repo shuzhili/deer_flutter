@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # deerflutter
 
 A new Flutter application.
+=======
+# deer_flutter
+
+A new Flutter project.
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
 
 ## Getting Started
 

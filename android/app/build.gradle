@@ -22,6 +22,7 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
+<<<<<<< HEAD
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 def keystorePropertiesFile = rootProject.file("app/key.properties")
 def keystoreProperties = new Properties()
@@ -29,17 +30,34 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 android {
     compileSdkVersion 28
 
+=======
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+android {
+    compileSdkVersion 28
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
     lintOptions {
         disable 'InvalidPackage'
     }
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+<<<<<<< HEAD
         applicationId "com.weilu.deer"
+=======
+        applicationId "com.example.deer_flutter"
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
         minSdkVersion 16
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+<<<<<<< HEAD
     }
     signingConfigs {
         release {
@@ -61,9 +79,30 @@ android {
             signingConfig signingConfigs.release
         }
 
+=======
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+        }
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
     }
 }
 
 flutter {
     source '../..'
 }
+<<<<<<< HEAD
+=======
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967

@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     package="com.example.deerflutter">
+=======
+    package="com.example.deer_flutter">
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
          In most cases you can leave this as-is, but you if you want to provide
@@ -7,7 +11,11 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
+<<<<<<< HEAD
         android:label="deerflutter"
+=======
+        android:label="deer_flutter"
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -16,6 +24,7 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
+<<<<<<< HEAD
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
@@ -33,6 +42,8 @@
               android:name="io.flutter.embedding.android.SplashScreenDrawable"
               android:resource="@drawable/launch_background"
               />
+=======
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -43,6 +54,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+<<<<<<< HEAD
 
         <meta-data
             android:name="flutterEmbedding"
@@ -52,5 +64,7 @@
             android:name="com.amap.api.v2.apikey"
             android:value="29017a09c0b0279853577be7df682513"/>
 
+=======
+>>>>>>> f76bfbbaa69cbc2df758bade118efd7596df6967
     </application>
 </manifest>
