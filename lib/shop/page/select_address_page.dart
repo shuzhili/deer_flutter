@@ -1,4 +1,6 @@
 import 'package:deerflutter/application.dart';
+import 'package:deerflutter/routers/fluro_naviagtator.dart';
+import 'package:deerflutter/util/log_utils.dart';
 import 'package:deerflutter/widgets/app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +94,8 @@ class AddressSelectPageState extends State<AddressSelectPage> {
           ),
           FlatButton(
             onPressed: () {
-              Navigator.pop(context, _list[_index]);
+              Log.e("pop"+_list[_index].provinceName);
+              NavigatorUtils.goBackWithParams(context, _list[_index]);
             },
             child: Container(
               alignment: Alignment.center,

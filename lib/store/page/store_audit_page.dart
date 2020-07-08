@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:deerflutter/application.dart';
+import 'package:deerflutter/routers/fluro_naviagtator.dart';
 import 'package:deerflutter/shop/shop_router.dart';
 import 'package:deerflutter/util/image_utils.dart';
 import 'package:deerflutter/util/log_utils.dart';
@@ -9,6 +10,7 @@ import 'package:deerflutter/widgets/SelectImage.dart';
 import 'package:deerflutter/widgets/app_bar.dart';
 import 'package:deerflutter/widgets/select_text.dart';
 import 'package:deerflutter/widgets/textfield_item.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_2d_amap/flutter_2d_amap.dart';
@@ -42,75 +44,85 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
   }
 
   _buildBody() {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.white,
-      padding: EdgeInsets.only(left: 16, right: 16, top: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            '店铺资料',
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
-          ),
-          SelectImage(),
-          buildStoreName(),
-          SelectText(
-            title: "主营范围",
-            hitText: sortName,
-            onTap: () => selectContent(),
-          ),
-          SelectText(
-            title: "店铺地址",
-            hitText: address,
-            onTap: () {
-              Application.router
-                  .navigateTo(context, ShopRouter.addressSelectPage)
-                  .then((value) => {});
-            },
-          ),
-          Text(
-            '店主信息',
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
-          ),
-          TextFieldItem(title: '店主姓名', hitStr: sortName),
-          TextFieldItem(title: '联系电话', hitStr: '请输入联系电话'),
-          Container(
-            width: double.infinity,
-            height: 20,
-          ),
-          FlatButton(
-              onPressed: () {
-                Application.router
-                    .navigateTo(context, ShopRouter.addressSelectPage)
-                    .then((value) => {
-                          setState(() {
-                            PoiSearch model = value;
-                            Log.e(model.toString());
-                            address = model.provinceName +
-                                ' ' +
-                                model.cityName +
-                                ' ' +
-                                model.adName +
-                                ' ' +
-                                model.title;
-                          })
-                        });
+    return SafeArea(
+      child: Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.white,
+        padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '店铺资料',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30),
+            ),
+            SelectImage(),
+            buildStoreName(),
+            SelectText(
+              title: "主营范围",
+              hitText: sortName,
+              onTap: () => selectContent(),
+            ),
+            SelectText(
+              title: "店铺地址",
+              hitText: address,
+              onTap: () {
+                NavigatorUtils.pushResult(context, ShopRouter.addressSelectPage, (result) {
+                  setState(() {
+                    PoiSearch model = result;
+                    address = model.provinceName + ' ' +
+                        model.cityName + ' ' +
+                        model.adName + ' ' +
+                        model.title;
+                  });
+                });
               },
-              child: Container(
-                alignment: Alignment.center,
-                width: double.infinity,
-                height: 48,
-                color: Colors.blue,
-                child: Text(
-                  '提交',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ))
-        ],
+            ),
+            Text(
+              '店主信息',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30),
+            ),
+            TextFieldItem(title: '店主姓名', hitStr: sortName),
+            TextFieldItem(title: '联系电话', hitStr: '请输入联系电话'),
+            Container(
+              width: double.infinity,
+              height: 20,
+            ),
+            FlatButton(
+                onPressed: () {
+                  NavigatorUtils.pushResult(
+                      context, ShopRouter.addressSelectPage, (result) {
+                    setState(() {
+                      PoiSearch model = result;
+                      address = model.provinceName +
+                          ' ' +
+                          model.cityName +
+                          ' ' +
+                          model.adName +
+                          ' ' +
+                          model.title;
+                    });
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  height: 48,
+                  color: Colors.blue,
+                  child: Text(
+                    '提交',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ))
+          ],
+        ),
       ),
     );
   }
